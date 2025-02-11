@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Результаты поиска</h1>
+    {% if directors %}
+        <ul>
+            {% for director in directors %}
+                <li>{{ director.name }} - {{ director.genre }} - {{ director.experience }} years - ${{ director.budget }}/day</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No directors found.</p>
+    {% endif %}
+    <a href="{{ url_for('search_director') }}">Back to Search</a> |
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
